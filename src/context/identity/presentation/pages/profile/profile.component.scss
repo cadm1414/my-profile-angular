@@ -1,0 +1,15 @@
+.profile-container {
+  padding: 24px;
+}
+
+.profile-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 16px 0;
+}

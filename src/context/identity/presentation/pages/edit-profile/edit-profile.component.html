@@ -1,0 +1,56 @@
+<div class="edit-profile-container">
+  <h3>Editar Perfil</h3>
+
+  @if (error()) {
+    <nz-alert 
+      nzType="error" 
+      [nzMessage]="error()" 
+      nzCloseable
+      (nzOnClose)="dismissError()"
+      style="margin-bottom: 16px;">
+    </nz-alert>
+  }
+
+  <form nz-form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzRequired>Email</nz-form-label>
+      <nz-form-control [nzSpan]="24" nzErrorTip="Por favor ingrese un email válido">
+        <input nz-input formControlName="email" type="email" placeholder="Email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzRequired>Nombre</nz-form-label>
+      <nz-form-control [nzSpan]="24" nzErrorTip="El nombre debe tener al menos 2 caracteres">
+        <input nz-input formControlName="name" placeholder="Nombre" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="24" nzRequired>Apellido</nz-form-label>
+      <nz-form-control [nzSpan]="24" nzErrorTip="El apellido debe tener al menos 2 caracteres">
+        <input nz-input formControlName="last_name" placeholder="Apellido" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSpan]="24">
+        <button 
+          nz-button 
+          nzType="default" 
+          type="button"
+          (click)="onReset()"
+          style="margin-right: 8px;">
+          Restablecer
+        </button>
+        <button 
+          nz-button 
+          nzType="primary" 
+          type="submit"
+          [nzLoading]="loading()">
+          Guardar Cambios
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

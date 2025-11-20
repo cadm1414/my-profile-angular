@@ -1,0 +1,22 @@
+<nz-header>
+  <div class="header-content">
+    <div class="logo">
+      <span class="logo-text">My Profile</span>
+    </div>
+    <div class="header-actions">
+      <nz-avatar nzIcon="user" nz-dropdown [nzDropdownMenu]="menu"></nz-avatar>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item (click)="navigateToProfile()">
+            <span nz-icon nzType="user" nzTheme="outline"></span>
+            Datos
+          </li>
+          <li nz-menu-item (click)="logout()">
+            <span nz-icon nzType="logout" nzTheme="outline"></span>
+            Cerrar Sesión
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+</nz-header>

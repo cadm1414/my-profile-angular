@@ -1,0 +1,20 @@
+<nz-sider 
+  [nzCollapsible]="true" 
+  [nzCollapsed]="isCollapsed()"
+  (nzCollapsedChange)="toggleCollapsed()"
+  [nzWidth]="256">
+  <ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed()">
+    <li nz-menu-item nzMatchRouter>
+      <a routerLink="/dashboard" routerLinkActive="ant-menu-item-selected">
+        <span nz-icon nzType="dashboard" nzTheme="outline"></span>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li nz-menu-item nzMatchRouter>
+      <a routerLink="/profile" routerLinkActive="ant-menu-item-selected">
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+        <span>Perfil</span>
+      </a>
+    </li>
+  </ul>
+</nz-sider>

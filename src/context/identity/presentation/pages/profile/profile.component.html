@@ -1,0 +1,13 @@
+<div class="profile-container">
+  <nz-card nzTitle="Perfil de Usuario">
+    <nz-spin [nzSpinning]="identityFacade.loading()">
+      <div class="profile-sections">
+        <app-edit-profile />
+        
+        <div class="section-divider"></div>
+        
+        <app-change-password />
+      </div>
+    </nz-spin>
+  </nz-card>
+</div>

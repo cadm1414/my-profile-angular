@@ -1,0 +1,35 @@
+nz-sider {
+  background: #001529;
+  position: fixed;
+  left: 0;
+  top: 64px;
+  bottom: 64px;
+  overflow: auto;
+  z-index: 999;
+
+  :host ::ng-deep .ant-menu {
+    background: #001529;
+  }
+
+  :host ::ng-deep .ant-menu-item {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  :host ::ng-deep .ant-menu-item-selected {
+    background-color: #1890ff !important;
+
+    a {
+      color: #fff !important;
+    }
+  }
+}
