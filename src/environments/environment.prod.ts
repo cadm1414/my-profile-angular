@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://devprofile-api-z0w7.onrender.com/api/v1'
+  apiUrl: 'https://api.idissoft.com/api/v1'
 };
