@@ -38,8 +38,16 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required, Validators.minLength(2)]],
       last_name: ['', [Validators.required, Validators.minLength(2)]],
-      full_name: ['', [Validators.required, Validators.minLength(4)]],
+      full_name: [{ value: '', disabled: true }, [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+
+    this.registerForm.get('name')?.valueChanges.subscribe(() => {
+      this.updateFullName();
+    });
+
+    this.registerForm.get('last_name')?.valueChanges.subscribe(() => {
+      this.updateFullName();
     });
 
     effect(() => {
@@ -51,9 +59,20 @@ export class RegisterComponent {
     });
   }
 
+  updateFullName(): void {
+    const name = this.registerForm.get('name')?.value || '';
+    const lastName = this.registerForm.get('last_name')?.value || '';
+    const fullName = `${name} ${lastName}`.trim();
+    this.registerForm.get('full_name')?.setValue(fullName, { emitEvent: false });
+  }
+
   onSubmit(): void {
     if (this.registerForm.valid) {
-      this.identityFacade.register(this.registerForm.value);
+      const formValue = {
+        ...this.registerForm.value,
+        full_name: this.registerForm.get('full_name')?.value
+      };
+      this.identityFacade.register(formValue);
     } else {
       Object.values(this.registerForm.controls).forEach(control => {
         if (control.invalid) {
