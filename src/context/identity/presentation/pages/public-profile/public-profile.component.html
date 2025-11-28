@@ -24,10 +24,22 @@
               <span nz-icon nzType="link" nzTheme="outline"></span>
               <span>myprofile.com/perfil/{{ publicProfile()!.domain }}</span>
             </div>
+            <div class="contact-info">
+              <span nz-icon nzType="github" nzTheme="outline"></span>
+              <a href="https://github.com/cadm1414" target="_blank" class="social-link">github.com/cadm1414</a>
+            </div>
+            <div class="contact-info">
+              <span nz-icon nzType="linkedin" nzTheme="fill"></span>
+              <a href="https://www.linkedin.com/in/cdiazm14/" target="_blank" class="social-link">linkedin.com/in/cdiazm14</a>
+            </div>
             <p class="bio">
               Ingeniero de Sistemas con experiencia en desarrollo de aplicaciones web, móviles y de escritorio, 
               especializado en el diseño e implementación de soluciones empresariales. Experiencia en sistemas ERP, 
               portales institucionales y facturación electrónica conforme a las normativas de SUNAT.
+            </p>
+            <p class="aws-badge">
+              <span nz-icon nzType="cloud" nzTheme="outline"></span>
+              Esta página está desplegada en AWS usando S3, CloudFront y CI/CD con GitHub Actions
             </p>
           </div>
         </div>
@@ -119,10 +131,27 @@
           </div>
           <div nz-col [nzXs]="24" [nzMd]="12">
             <div class="principle-card">
-              <h4><span nz-icon nzType="cloud" nzTheme="outline"></span> DevOps & Otros</h4>
+              <h4><span nz-icon nzType="cloud" nzTheme="outline"></span> AWS Cloud</h4>
+              <ul>
+                <li>S3 (Static Hosting)</li>
+                <li>ECR (Container Registry)</li>
+                <li>ECS (Container Orchestration)</li>
+                <li>ALB (Application Load Balancer)</li>
+                <li>Route 53 (DNS)</li>
+                <li>EC2 (Virtual Servers)</li>
+                <li>ACM (Certificate Manager)</li>
+                <li>CloudFront (CDN)</li>
+              </ul>
+            </div>
+          </div>
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="principle-card">
+              <h4><span nz-icon nzType="deployment-unit" nzTheme="outline"></span> DevOps & CI/CD</h4>
               <ul>
                 <li>Linux, Nginx, PM2</li>
                 <li>Git & Control de Versiones</li>
+                <li>GitHub Actions</li>
+                <li>Docker & Containerización</li>
                 <li>Certificados Digitales & Firma XML</li>
                 <li>Facturación Electrónica SUNAT</li>
               </ul>

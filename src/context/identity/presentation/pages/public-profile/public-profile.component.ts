@@ -58,7 +58,15 @@ export class PublicProfileComponent implements OnInit {
     'Design Patterns',
     'SCRUM',
     'Power BI',
-    'Business Analytics'
+    'Business Analytics',
+    'AWS S3',
+    'AWS ECR',
+    'AWS ECS',
+    'AWS ALB',
+    'AWS Route 53',
+    'AWS EC2',
+    'AWS ACM',
+    'AWS CloudFront'
   ];
 
   mockExperience = [

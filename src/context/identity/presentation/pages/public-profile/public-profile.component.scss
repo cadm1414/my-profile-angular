@@ -87,6 +87,18 @@
             span[nz-icon] {
               font-size: 18px;
             }
+
+            .social-link {
+              color: rgba(255, 255, 255, 0.95);
+              text-decoration: none;
+              transition: all 0.3s ease;
+              border-bottom: 2px solid transparent;
+
+              &:hover {
+                color: white;
+                border-bottom-color: rgba(255, 255, 255, 0.8);
+              }
+            }
           }
 
           .bio {
@@ -99,6 +111,31 @@
 
             @media (max-width: 768px) {
               text-align: center;
+            }
+          }
+
+          .aws-badge {
+            margin-top: 16px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            @media (max-width: 768px) {
+              text-align: center;
+              justify-content: center;
+            }
+
+            span[nz-icon] {
+              font-size: 18px;
             }
           }
         }
