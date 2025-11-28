@@ -34,6 +34,14 @@
     </nz-form-item>
 
     <nz-form-item>
+      <nz-form-label [nzSpan]="24">Dominio</nz-form-label>
+      <nz-form-control [nzSpan]="24" nzErrorTip="Solo letras y números, máximo 50 caracteres">
+        <input nz-input formControlName="domain" placeholder="midominio" maxlength="50" />
+        <nz-form-text>URL de tu perfil público: /profile/[dominio]</nz-form-text>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
       <nz-form-control [nzSpan]="24">
         <button 
           nz-button 

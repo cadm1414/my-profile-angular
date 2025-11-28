@@ -4,6 +4,7 @@ export interface UserProfile {
   name: string;
   last_name: string;
   full_name: string;
+  domain?: string;
 }
 
 export interface GetMeResponse {
@@ -12,6 +13,7 @@ export interface GetMeResponse {
   name: string;
   last_name: string;
   full_name: string;
+  domain?: string;
 }
 
 export interface UpdateProfileRequest {
@@ -19,6 +21,7 @@ export interface UpdateProfileRequest {
   name: string;
   last_name: string;
   full_name: string;
+  domain?: string;
 }
 
 export interface UpdateProfileResponse {
@@ -27,4 +30,5 @@ export interface UpdateProfileResponse {
   name: string;
   last_name: string;
   full_name: string;
+  domain?: string;
 }

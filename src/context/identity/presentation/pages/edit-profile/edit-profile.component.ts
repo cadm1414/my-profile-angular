@@ -35,7 +35,8 @@ export class EditProfileComponent {
     this.profileForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required, Validators.minLength(2)]],
-      last_name: ['', [Validators.required, Validators.minLength(2)]]
+      last_name: ['', [Validators.required, Validators.minLength(2)]],
+      domain: ['', [Validators.maxLength(50), Validators.pattern(/^[a-zA-Z0-9]*$/)]]
     });
 
     effect(() => {
@@ -44,7 +45,8 @@ export class EditProfileComponent {
         this.profileForm.patchValue({
           email: profile.email,
           name: profile.name,
-          last_name: profile.last_name
+          last_name: profile.last_name,
+          domain: profile.domain || ''
         });
       }
     });
@@ -66,7 +68,8 @@ export class EditProfileComponent {
         email: formValue.email,
         name: formValue.name,
         last_name: formValue.last_name,
-        full_name: fullName
+        full_name: fullName,
+        domain: formValue.domain || undefined
       });
     } else {
       Object.values(this.profileForm.controls).forEach(control => {
@@ -84,7 +87,8 @@ export class EditProfileComponent {
       this.profileForm.patchValue({
         email: profile.email,
         name: profile.name,
-        last_name: profile.last_name
+        last_name: profile.last_name,
+        domain: profile.domain || ''
       });
     }
   }
