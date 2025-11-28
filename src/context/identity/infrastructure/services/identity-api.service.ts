@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RegisterRequest, RegisterResponse, GetMeResponse, UpdateProfileRequest, UpdateProfileResponse, ChangePasswordRequest, ChangePasswordResponse } from '../../domain/interfaces';
+import { PublicProfileResponse } from '../../domain/interfaces/public-profile.interface';
 import { environment } from '../../../../environments/environment';
 import { LocalStorageService } from '../../../auth/infrastructure/services/local-storage.service';
 
@@ -42,5 +43,9 @@ export class IdentityApiService {
       'Authorization': `${tokenType} ${token}`
     });
     return this.http.put<ChangePasswordResponse>(`${this.apiUrl}/me/password`, data, { headers });
+  }
+
+  getPublicProfile(domain: string): Observable<PublicProfileResponse> {
+    return this.http.get<PublicProfileResponse>(`${this.apiUrl}/profile/${domain}`);
   }
 }

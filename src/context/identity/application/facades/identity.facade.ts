@@ -1,6 +1,8 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { RegisterRequest, IdentityState, UserProfile, UpdateProfileRequest, ChangePasswordRequest } from '../../domain/interfaces';
+import { PublicProfile } from '../../domain/interfaces/public-profile.interface';
 import { RegisterUseCase, GetMeUseCase, UpdateProfileUseCase, ChangePasswordUseCase } from '../use-cases';
+import { GetPublicProfileUseCase } from '../use-cases/get-public-profile.use-case';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ export class IdentityFacade {
   private readonly getMeUseCase = inject(GetMeUseCase);
   private readonly updateProfileUseCase = inject(UpdateProfileUseCase);
   private readonly changePasswordUseCase = inject(ChangePasswordUseCase);
+  private readonly getPublicProfileUseCase = inject(GetPublicProfileUseCase);
 
   private readonly identityState = signal<IdentityState>({
     user: null,
@@ -19,6 +22,7 @@ export class IdentityFacade {
   });
 
   private readonly userProfileState = signal<UserProfile | null>(null);
+  private readonly publicProfileState = signal<PublicProfile | null>(null);
   private readonly profileUpdateSuccess = signal<boolean>(false);
   private readonly passwordChangeSuccess = signal<boolean>(false);
 
@@ -27,6 +31,7 @@ export class IdentityFacade {
   readonly error = computed(() => this.identityState().error);
   readonly success = computed(() => this.identityState().success);
   readonly userProfile = computed(() => this.userProfileState());
+  readonly publicProfile = computed(() => this.publicProfileState());
   readonly profileSuccess = computed(() => this.profileUpdateSuccess());
   readonly passwordSuccess = computed(() => this.passwordChangeSuccess());
 
@@ -160,6 +165,34 @@ export class IdentityFacade {
 
   clearPasswordSuccess(): void {
     this.passwordChangeSuccess.set(false);
+  }
+
+  getPublicProfile(domain: string): void {
+    this.setLoading(true);
+    this.clearError();
+
+    this.getPublicProfileUseCase.execute(domain).subscribe({
+      next: (response) => {
+        this.publicProfileState.set(response);
+        this.identityState.update(state => ({
+          ...state,
+          loading: false,
+          error: null
+        }));
+      },
+      error: (error) => {
+        const errorMessage = error.error?.detail?.message 
+          || error.error?.message 
+          || 'Perfil no encontrado';
+        
+        this.publicProfileState.set(null);
+        this.identityState.update(state => ({
+          ...state,
+          loading: false,
+          error: errorMessage
+        }));
+      }
+    });
   }
 
   private setLoading(loading: boolean): void {

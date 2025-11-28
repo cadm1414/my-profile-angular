@@ -13,6 +13,10 @@ export const routes: Routes = [
         loadComponent: () => import('../context/identity/presentation/pages/register/register.component').then(m => m.RegisterComponent)
     },
     {
+        path: 'perfil/:domain',
+        loadComponent: () => import('../context/identity/presentation/pages/public-profile/public-profile.component').then(m => m.PublicProfileComponent)
+    },
+    {
         path: '',
         canActivate: [authGuard],
         loadComponent: () => import('../context/shell/presentation/layout/main-layout.component').then(m => m.MainLayoutComponent),

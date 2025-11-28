@@ -1,0 +1,153 @@
+<div class="public-profile-container">
+  @if (loading()) {
+    <div class="loading-container">
+      <nz-spin nzSize="large" nzTip="Cargando perfil..."></nz-spin>
+    </div>
+  } @else if (publicProfile()) {
+    <div class="cv-template">
+      <!-- Header Section -->
+      <nz-card [nzBordered]="false" class="header-card">
+        <div class="header-content">
+          <div class="avatar-section">
+            <div class="avatar-placeholder">
+              <span nz-icon nzType="user" nzTheme="outline" class="avatar-icon"></span>
+            </div>
+          </div>
+          <div class="info-section">
+            <h1 nz-typography>{{ publicProfile()!.full_name }}</h1>
+            <p class="subtitle">Ingeniero de Sistemas | Full Stack Developer</p>
+            <div class="contact-info">
+              <span nz-icon nzType="mail" nzTheme="outline"></span>
+              <span>{{ publicProfile()!.email }}</span>
+            </div>
+            <div class="contact-info">
+              <span nz-icon nzType="link" nzTheme="outline"></span>
+              <span>myprofile.com/perfil/{{ publicProfile()!.domain }}</span>
+            </div>
+            <p class="bio">
+              Ingeniero de Sistemas con experiencia en desarrollo de aplicaciones web, móviles y de escritorio, 
+              especializado en el diseño e implementación de soluciones empresariales. Experiencia en sistemas ERP, 
+              portales institucionales y facturación electrónica conforme a las normativas de SUNAT.
+            </p>
+          </div>
+        </div>
+      </nz-card>
+
+      <!-- Skills Section -->
+      <nz-card nzTitle="Habilidades Técnicas" class="section-card">
+        <div class="skills-grid">
+          @for (skill of mockSkills; track skill) {
+            <nz-tag [nzColor]="'blue'" class="skill-tag">{{ skill }}</nz-tag>
+          }
+        </div>
+      </nz-card>
+
+      <!-- Experience Section -->
+      <nz-card nzTitle="Experiencia Profesional" class="section-card">
+        @for (exp of mockExperience; track exp.title) {
+          <div class="experience-item">
+            <div class="experience-header">
+              <h3 nz-typography>{{ exp.title }}</h3>
+              <span class="period">{{ exp.startDate }} - {{ exp.endDate }}</span>
+            </div>
+            <p class="company">
+              <span nz-icon nzType="bank" nzTheme="outline"></span>
+              {{ exp.company }}
+            </p>
+            <p class="description">{{ exp.description }}</p>
+            @if (!$last) {
+              <nz-divider></nz-divider>
+            }
+          </div>
+        }
+      </nz-card>
+
+      <!-- Education Section -->
+      <nz-card nzTitle="Educación y Certificaciones" class="section-card">
+        @for (edu of mockEducation; track edu.degree) {
+          <div class="education-item">
+            <div class="education-header">
+              <h3 nz-typography>{{ edu.degree }}</h3>
+              <span class="year">{{ edu.year }}</span>
+            </div>
+            <p class="institution">
+              <span nz-icon nzType="book" nzTheme="outline"></span>
+              {{ edu.institution }}
+            </p>
+            @if (!$last) {
+              <nz-divider></nz-divider>
+            }
+          </div>
+        }
+      </nz-card>
+
+      <!-- Principles & Best Practices -->
+      <nz-card nzTitle="Áreas de Especialización" class="section-card">
+        <div nz-row [nzGutter]="[16, 16]">
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="principle-card">
+              <h4><span nz-icon nzType="code" nzTheme="outline"></span> Desarrollo Frontend</h4>
+              <ul>
+                <li>Angular (Material, RxJS, Handsontable)</li>
+                <li>JavaScript / TypeScript</li>
+                <li>HTML5, CSS3</li>
+                <li>Componentes Reutilizables</li>
+              </ul>
+            </div>
+          </div>
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="principle-card">
+              <h4><span nz-icon nzType="database" nzTheme="outline"></span> Desarrollo Backend</h4>
+              <ul>
+                <li>Node.js, Express.js, NestJS</li>
+                <li>Java (Swing, PowerBuilder)</li>
+                <li>REST APIs & JWT</li>
+                <li>Arquitectura de Microservicios</li>
+              </ul>
+            </div>
+          </div>
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="principle-card">
+              <h4><span nz-icon nzType="rocket" nzTheme="outline"></span> Bases de Datos</h4>
+              <ul>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+                <li>MySQL</li>
+                <li>SQL Server (Administración)</li>
+              </ul>
+            </div>
+          </div>
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="principle-card">
+              <h4><span nz-icon nzType="cloud" nzTheme="outline"></span> DevOps & Otros</h4>
+              <ul>
+                <li>Linux, Nginx, PM2</li>
+                <li>Git & Control de Versiones</li>
+                <li>Certificados Digitales & Firma XML</li>
+                <li>Facturación Electrónica SUNAT</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nz-card>
+
+      <!-- Idiomas -->
+      <nz-card nzTitle="Idiomas" class="section-card">
+        <div nz-row [nzGutter]="[16, 16]">
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="language-item">
+              <h4><span nz-icon nzType="global" nzTheme="outline"></span> Español</h4>
+              <p>Nativo</p>
+            </div>
+          </div>
+          <div nz-col [nzXs]="24" [nzMd]="12">
+            <div class="language-item">
+              <h4><span nz-icon nzType="global" nzTheme="outline"></span> Inglés</h4>
+              <p>Intermedio (Escrito y Hablado)</p>
+            </div>
+          </div>
+        </div>
+      </nz-card>
+    </div>
+  }
+</div>
