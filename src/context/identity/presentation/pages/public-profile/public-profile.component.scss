@@ -1,6 +1,6 @@
 .public-profile-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1372FB 0%, #1B93DB 25%, #00BFC8 50%, #17DBBE 75%, #1AFDAB 100%);
   padding: 40px 20px;
 
   .loading-container {
@@ -16,7 +16,7 @@
     animation: fadeIn 0.6s ease-in;
 
     .header-card {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      background: linear-gradient(135deg, #1372FB 0%, #1B93DB 50%, #00BFC8 100%);
       color: white;
       border-radius: 16px;
       margin-bottom: 24px;
@@ -68,8 +68,15 @@
           .subtitle {
             font-size: 20px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             font-weight: 300;
+          }
+
+          .cip-badge {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+            font-style: italic;
           }
 
           .contact-info {
@@ -160,7 +167,7 @@
         .ant-card-head-title {
           font-size: 24px;
           font-weight: 600;
-          color: #1e3a8a;
+          color: #1372FB;
         }
       }
 
@@ -201,7 +208,7 @@
           h3 {
             font-size: 20px;
             font-weight: 600;
-            color: #1e40af;
+            color: #1372FB;
             margin: 0;
           }
 
@@ -227,7 +234,7 @@
           margin-bottom: 12px;
 
           span[nz-icon] {
-            color: #3b82f6;
+            color: #1B93DB;
           }
         }
 
@@ -242,13 +249,13 @@
         background: #f8fafc;
         padding: 20px;
         border-radius: 8px;
-        border-left: 4px solid #3b82f6;
+        border-left: 4px solid #1B93DB;
         height: 100%;
 
         h4 {
           font-size: 18px;
           font-weight: 600;
-          color: #1e40af;
+          color: #1372FB;
           margin-bottom: 16px;
           display: flex;
           align-items: center;
@@ -275,7 +282,7 @@
               content: "▸";
               position: absolute;
               left: 0;
-              color: #3b82f6;
+              color: #1B93DB;
               font-weight: bold;
             }
           }
@@ -286,7 +293,7 @@
         background: #f8fafc;
         padding: 20px;
         border-radius: 8px;
-        border-left: 4px solid #10b981;
+        border-left: 4px solid #17DBBE;
         text-align: center;
 
         h4 {
